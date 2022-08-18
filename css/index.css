@@ -1,0 +1,88 @@
+/* Space Mono font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* RESET */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* RESET */
+
+:root {
+  --base-lighter-purple-color: #beb6e1;
+  --base-light-purple-color: #8170db;
+  --base-mid-purple-color: #6456a8;
+  --base-dark-purple-color: #362f5c;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: var(--base-dark-purple-color);
+}
+
+.header-text {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.header-player-turn {
+  color: cornsilk;
+  font-size: 1.5rem;
+}
+
+.canvas {
+  margin: 50px auto;
+  width: 500px;
+  height: 500px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.canvas-part {
+}
+
+.btn {
+}
