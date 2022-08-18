@@ -38,9 +38,17 @@ function _init() {
   cellContainer.addEventListener('click', operateCells);
 }
 
+function markArrayFromCells(cellsArr) {
+  return Array.from(cellsArr).map((el) => el.textContent);
+}
+
+function disableCanvas(e) {
+  e.target.closest('.canvas').removeEventListener('click', operateCells);
+}
+
 // Checking game state
 function checkForWin() {
-  const cellMarkers = Array.from(cells).map((el) => el.textContent);
+  const cellMarkers = markArrayFromCells(cells);
 
   return (
     gameboard.checkForLines(cellMarkers) ||
@@ -56,17 +64,29 @@ function operateCells(e) {
   // Adding current player marker on canvas
   gameboard.setCellMarker(e.target.dataset.cellNumber, _currentPlayer._mark);
   gameboard.changeCellMarker(cells);
+
   // Removing listener on cell to prevent clicking
   e.target.removeEventListener('click', this);
 
+  // Checking if game is a tie
+  if (gameboard.checkForTie(markArrayFromCells(cells))) {
+    currentPlayerText.innerHTML = "It's a tie!";
+    disableCanvas(e);
+    return;
+  }
+
   // Checking if the game is won
   _isWon = checkForWin();
+
+  console.log(_isWon);
+  console.log(_currentPlayer);
 
   if (_isWon) {
     // Changing header text
     currentPlayerText.innerHTML = `${_currentPlayer._mark} won!`;
     // Selecting canvas element and removing listener to prevent clicks
-    e.target.closest('.canvas').removeEventListener('click', operateCells);
+    // e.target.closest('.canvas').removeEventListener('click', operateCells);
+    disableCanvas(e);
     return;
   }
 
