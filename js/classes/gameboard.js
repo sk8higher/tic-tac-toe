@@ -1,17 +1,17 @@
 class Gameboard {
-  #board;
+  _board;
 
   constructor(board) {
-    this.#board = new Array(board.length);
+    this._board = new Array(board.length);
   }
 
   setCellMarker(cellNumber, marker) {
-    this.#board[cellNumber] = marker;
+    this._board[cellNumber] = marker;
   }
 
   changeCellMarker(board) {
     board.forEach((el, i) => {
-      el.textContent = this.#board[i];
+      el.textContent = this._board[i];
     });
   }
 }
