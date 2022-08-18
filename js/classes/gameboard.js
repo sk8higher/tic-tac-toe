@@ -56,7 +56,7 @@ class Gameboard {
   }
 
   /**
-   * Checks if there a won diagonal
+   * Checks if there is a won diagonal
    * @param cellMarkers
    * @returns {boolean}
    */
@@ -68,6 +68,14 @@ class Gameboard {
       this.checkEveryElement(firstDiagonal) ||
       this.checkEveryElement(secondDiagonal)
     );
+  }
+
+  checkForTie(cellMarkers) {
+    return cellMarkers.every((el) => el === 'X' || el === 'O');
+  }
+
+  clearBoard() {
+    this._board.fill('');
   }
 }
 

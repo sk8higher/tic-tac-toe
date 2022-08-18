@@ -5,6 +5,9 @@ import { Player } from './classes/player.js';
 const cells = document.querySelectorAll('.canvas-part');
 const cellContainer = document.querySelector('.canvas');
 
+// Restart game
+const restartButton = document.querySelector('.restart-btn');
+
 // Current player header text
 const currentPlayerText = document.querySelector('.header-player-turn');
 
@@ -22,11 +25,18 @@ const playerO = new Player('O', 1);
 let _isWon = false;
 let _currentPlayer = playerX;
 
-// function _init(board) {
-//   _gameState = 0;
-//   _currentPlayer = 'X';
-//   board.forEach((el) => (el.textContent = ''));
-// }
+function _init() {
+  // Restoring defaults
+  _isWon = false;
+  _currentPlayer = playerX;
+  cells.forEach((el) => (el.textContent = ''));
+
+  currentPlayerText.innerHTML = "It's X player turn";
+  gameboard.clearBoard();
+
+  // Attaching event listener back to canvas
+  cellContainer.addEventListener('click', operateCells);
+}
 
 // Checking game state
 function checkForWin() {
@@ -68,5 +78,6 @@ function operateCells(e) {
 }
 
 cellContainer.addEventListener('click', operateCells);
+restartButton.addEventListener('click', _init);
 
 console.log(gameboard);
