@@ -118,3 +118,17 @@ header {
 
 .btn {
 }
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.restart-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  background-color: var(--base-mid-purple-color);
+  color: white;
+  border: 2px black solid;
+  border-radius: 10px;
+}
