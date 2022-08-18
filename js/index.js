@@ -78,9 +78,6 @@ function operateCells(e) {
   // Checking if the game is won
   _isWon = checkForWin();
 
-  console.log(_isWon);
-  console.log(_currentPlayer);
-
   if (_isWon) {
     // Changing header text
     currentPlayerText.innerHTML = `${_currentPlayer._mark} won!`;
@@ -99,5 +96,3 @@ function operateCells(e) {
 
 cellContainer.addEventListener('click', operateCells);
 restartButton.addEventListener('click', _init);
-
-console.log(gameboard);
