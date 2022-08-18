@@ -40,25 +40,29 @@ function checkForWin() {
 }
 
 function operateCells(e) {
-  // Adding current player marker on canvas
   // Guard clause to add markers only on empty cells
   if (cells.item(+e.target.dataset.cellNumber).textContent) return;
 
+  // Adding current player marker on canvas
   gameboard.setCellMarker(e.target.dataset.cellNumber, _currentPlayer._mark);
   gameboard.changeCellMarker(cells);
+  // Removing listener on cell to prevent clicking
   e.target.removeEventListener('click', this);
 
+  // Checking if the game is won
   _isWon = checkForWin();
-  console.log(_isWon);
 
   if (_isWon) {
-    currentPlayerText.innerHTML = `${_currentPlayer.mark} won!`;
+    // Changing header text
+    currentPlayerText.innerHTML = `${_currentPlayer._mark} won!`;
+    // Selecting canvas element and removing listener to prevent clicks
+    e.target.closest('.canvas').removeEventListener('click', operateCells);
+    return;
   }
 
   // Changing current player
   _currentPlayer = _currentPlayer._playerNumber === 0 ? playerO : playerX;
 
-  console.log(_currentPlayer);
   // Changing header player text
   currentPlayerText.innerHTML = `It's ${_currentPlayer._mark} player turn`;
 }
