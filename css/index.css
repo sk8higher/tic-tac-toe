@@ -129,3 +129,10 @@ header {
   border: 2px black solid;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .canvas {
+    height: 400px;
+    width: 400px;
+  }
+}
