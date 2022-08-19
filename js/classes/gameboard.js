@@ -1,3 +1,5 @@
+'use strict';
+
 class Gameboard {
   _board;
 

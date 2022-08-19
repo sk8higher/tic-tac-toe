@@ -1,3 +1,5 @@
+'use strict';
+
 import { Gameboard } from './classes/gameboard.js';
 import { Player } from './classes/player.js';
 
